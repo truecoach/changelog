@@ -11,12 +11,20 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'slack-notifier'
+gem 'httparty'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'factory_bot'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do

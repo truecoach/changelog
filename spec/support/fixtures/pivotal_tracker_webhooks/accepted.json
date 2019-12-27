@@ -1,0 +1,54 @@
+{
+  "kind": "story_update_activity",
+  "guid": "2418090_1366",
+  "project_version": 1366,
+  "message": "Adam Steel accepted this feature",
+  "highlight": "accepted",
+  "changes": [
+    {
+      "kind": "story",
+      "change_type": "update",
+      "id": 169409633,
+      "original_values": {
+        "current_state": "delivered",
+        "accepted_at": null,
+        "updated_at": 1577463879000,
+        "before_id": 170247242,
+        "after_id": 170369550
+      },
+      "new_values": {
+        "current_state": "accepted",
+        "accepted_at": 1577480074000,
+        "updated_at": 1577480074000,
+        "before_id": 170369550,
+        "after_id": 170456439
+      },
+      "name": "Set all Rails cookies to samesite=lax; by Feb 2020",
+      "story_type": "feature"
+    }
+  ],
+  "primary_resources": [
+    {
+      "kind": "story",
+      "id": 169409633,
+      "name": "Set all Rails cookies to samesite=lax; by Feb 2020",
+      "story_type": "feature",
+      "url": "https://www.pivotaltracker.com/story/show/169409633"
+    }
+  ],
+  "secondary_resources": [
+
+  ],
+  "project": {
+    "kind": "project",
+    "id": 2418090,
+    "name": "Catbus"
+  },
+  "performed_by": {
+    "kind": "person",
+    "id": 3163586,
+    "name": "Adam Steel",
+    "initials": "adsteel"
+  },
+  "occurred_at": 1577480075000
+}

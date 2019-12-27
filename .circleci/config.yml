@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    working_directory: ~/fitbot-server
+    resource_class: small
+    docker:
+      - image: circleci/ruby:2.6.2-node-browsers
+        environment:
+          BUNDLE_JOBS: 2
+          BUNDLE_RETRY: 2
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: root
+          RAILS_ENV: test
+          DB_HOST: localhost
+      - image: circleci/postgres:10.10-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: changelog_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout # special step to check out source code to working directory
+
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - gem-cache{{ checksum "Gemfile.lock" }}
+            - gem-cache
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: gem-cache{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Database setup
+          command: bin/rails db:create
+
+      - run:
+          name: Run RSpec
+          command: |
+            bundle exec rspec spec

@@ -23,5 +23,6 @@ module Changelog
   class Application < Rails::Application
     config.load_defaults 6.0
     config.generators.system_tests = nil
+    config.hosts.clear
   end
 end
