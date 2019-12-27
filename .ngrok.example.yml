@@ -1,0 +1,8 @@
+authtoken: {{secret ngrok token}}
+region: us
+remote_management: null
+tunnels:
+  tunnel:
+    proto: http
+    addr: {{server port, e.g. 3000}}
+    subdomain: {{myname-ngrok-subdomain}}
