@@ -39,8 +39,12 @@ bundle exec rspec spec
 
 ### Receiving webhooks locally
 
+1. Route external requests to your localhost via an ngrok tunnel.
+
 ```bash
 cp .ngrok.example.yml .ngrok.yml
 # STOP: Edit your .ngrok.yml file with your ngrok details
 ngrok start -config=.ngrok.yml <<my-ngrok.yml-tunnel-name>>
 ```
+
+2. [Create a webhook](https://www.pivotaltracker.com/help/articles/activity_webhook/) in PivotalTracker that points to your new ngrok domain.
