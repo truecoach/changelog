@@ -21,8 +21,10 @@ $ direnv allow
 $ createuser postgres -s
 $ createdb localhost
 $ gem install bundler -v 1.17.3
-$ gem install foreman pry
 $ bundle install
+$ npm i yarn
+$ yarn install
+$ pg_ctl start # or start your postgres db another way
 $ bundle exec rake db:setup
 $ bundle exec rails s
 ```
