@@ -1,5 +1,10 @@
 class PivotalTrackerEvent < Struct.new(:raw_params)
+  BUG = 'bug'.freeze
+  FEATURE = 'feature'.freeze
+
   def report?
+    return false unless correct_type?
+
     accepted? || restarted?
   end
 
@@ -18,6 +23,14 @@ class PivotalTrackerEvent < Struct.new(:raw_params)
   end
 
   private
+
+  def correct_type?
+    [BUG, FEATURE].include?(story_type)
+  end
+
+  def story_type
+    params.dig('primary_resources', 0, 'story_type')
+  end
 
   def story_updated?
     params['kind'] == 'story_update_activity'

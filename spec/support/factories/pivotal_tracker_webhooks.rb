@@ -8,6 +8,12 @@ FactoryBot.define do
       fixture { 'restarted.json' }
     end
 
+    trait :chore do
+      after(:build) do |hash|
+        hash['primary_resources'].map { |pr| pr['story_type'] = 'chore' }
+      end
+    end
+
     skip_create
 
     initialize_with do

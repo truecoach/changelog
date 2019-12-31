@@ -19,5 +19,13 @@ RSpec.describe PivotalTrackerEvent do
         expect(event.report?).to eq(true)
       end
     end
+
+    context 'given an accepted chore' do
+      let(:params) { FB.build(:pivotal_tracker_webhook, :accepted, :chore) }
+
+      it 'returns false' do
+        expect(event.report?).to eq(false)
+      end
+    end
   end
 end
