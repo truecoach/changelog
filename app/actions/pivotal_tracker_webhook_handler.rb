@@ -15,7 +15,8 @@ class PivotalTrackerWebhookHandler < Struct.new(:params)
       description: story.description,
       labels: story.labels,
       url: story.url,
-      show_as_bug: story.bug?
+      show_as_bug: story.bug?,
+      is_rolledback: event.restarted?
     )
   end
 

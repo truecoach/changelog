@@ -1,0 +1,95 @@
+{
+  "kind": "story_update_activity",
+  "guid": "2427380_14",
+  "project_version": 14,
+  "message": "Adam Steel started this feature",
+  "highlight": "started",
+  "changes": [
+    {
+      "kind": "story",
+      "change_type": "update",
+      "id": 170489961,
+      "original_values": {
+        "current_state": "accepted",
+        "accepted_at": 1577813656000,
+        "updated_at": 1577813656000
+      },
+      "new_values": {
+        "current_state": "started",
+        "accepted_at": null,
+        "updated_at": 1577813666000
+      },
+      "name": "Demo story",
+      "story_type": "feature"
+    }
+  ],
+  "primary_resources": [
+    {
+      "kind": "story",
+      "id": 170489961,
+      "name": "Demo story",
+      "story_type": "feature",
+      "url": "https://www.pivotaltracker.com/story/show/170489961"
+    }
+  ],
+  "secondary_resources": [],
+  "project": {
+    "kind": "project",
+    "id": 2427380,
+    "name": "demo"
+  },
+  "performed_by": {
+    "kind": "person",
+    "id": 3309161,
+    "name": "Adam Steel",
+    "initials": "AS"
+  },
+  "occurred_at": 1577813666000,
+  "pivotal_tracker": {
+    "kind": "story_update_activity",
+    "guid": "2427380_14",
+    "project_version": 14,
+    "message": "Adam Steel started this feature",
+    "highlight": "started",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 170489961,
+        "original_values": {
+          "current_state": "accepted",
+          "accepted_at": 1577813656000,
+          "updated_at": 1577813656000
+        },
+        "new_values": {
+          "current_state": "started",
+          "accepted_at": null,
+          "updated_at": 1577813666000
+        },
+        "name": "Demo story",
+        "story_type": "feature"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 170489961,
+        "name": "Demo story",
+        "story_type": "feature",
+        "url": "https://www.pivotaltracker.com/story/show/170489961"
+      }
+    ],
+  "secondary_resources": [],
+  "project": {
+    "kind": "project",
+    "id": 2427380,
+    "name": "demo"
+  },
+  "performed_by": {
+    "kind": "person",
+    "id": 3309161,
+    "name": "Adam Steel",
+    "initials": "AS"},
+    "occurred_at": 1577813666000
+  }
+}

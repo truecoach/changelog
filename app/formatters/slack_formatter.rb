@@ -11,9 +11,38 @@ class SlackFormatter
     self.labels = params.fetch(:labels, '')
     self.url = params.fetch(:url)
     self.show_as_bug = params.fetch(:show_as_bug, false)
+    self.is_rolledback = params.fetch(:is_rolledback, false)
   end
 
   def call
+    is_rolledback ? rollback_message : deployed_message
+  end
+
+  private
+
+  attr_accessor :description,
+                :labels,
+                :identifier,
+                :is_rolledback,
+                :show_as_bug,
+                :title,
+                :type,
+                :url
+
+  def rollback_message
+    <<~MSG
+      -----------------------
+      :poop: oops!
+      \n
+      *rolled back*: '#{title}' by #{identifier}
+      \n
+      _This should not be considered deployed for now_
+      \n
+      #{url}
+    MSG
+  end
+
+  def deployed_message
     <<~MSG
       -----------------------
       #{emoji} deployed by #{identifier} @ #{Time.now.strftime('%-d-%-m-%y %-k:%M %Z')}
@@ -25,16 +54,6 @@ class SlackFormatter
       #{url}
     MSG
   end
-
-  private
-
-  attr_accessor :description,
-                :labels,
-                :identifier,
-                :show_as_bug,
-                :title,
-                :type,
-                :url
 
   def summary
     shortened_desc = description[0..200]

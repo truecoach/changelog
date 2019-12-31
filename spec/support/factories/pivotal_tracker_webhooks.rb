@@ -4,6 +4,10 @@ FactoryBot.define do
       fixture { 'accepted.json' }
     end
 
+    trait :restarted do
+      fixture { 'restarted.json' }
+    end
+
     skip_create
 
     initialize_with do
