@@ -34,11 +34,8 @@ class SlackFormatter
       -----------------------
       :poop: oops!
       \n
-      *rolled back*: '#{title}' by #{identifier}
-      \n
+      *rolled back*: <#{url}|'#{title}'> by #{identifier}
       _This should not be considered deployed for now_
-      \n
-      #{url}
     MSG
   end
 
@@ -47,11 +44,9 @@ class SlackFormatter
       -----------------------
       #{emoji} deployed by #{identifier} @ #{Time.now.strftime('%-d-%-m-%y %-k:%M %Z')}
       \n
-      *[#{type}]* #{title}
+      *[#{type}]* <#{url}|#{title}>
       *description:* #{summary}
       *labels:* #{labels}
-      \n
-      #{url}
     MSG
   end
 
