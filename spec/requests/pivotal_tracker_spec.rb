@@ -19,4 +19,8 @@ RSpec.describe 'POST /pivotal_tracker', :pt, :slack do
 
     expect(response.status).to eq(201)
   end
+
+  it 'sends a slack message' do
+    expect { ping }.to change { fired_slack_hooks.size }.by(1)
+  end
 end
