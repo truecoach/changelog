@@ -50,8 +50,12 @@ class SlackFormatter
     MSG
   end
 
+  def label_list
+    labels.join(', ').presence || '-'
+  end
+
   def summary
-    shortened_desc = description[0..200]
+    shortened_desc = description[0..200].presence || '-'
     shortened_desc += '...' if description.length > shortened_desc.length
   end
 
