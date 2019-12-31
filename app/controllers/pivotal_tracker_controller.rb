@@ -1,6 +1,5 @@
 class PivotalTrackerController < ApplicationController
   skip_before_action :verify_authenticity_token
-  http_basic_authenticate_with name: ENV.fetch('PT_BASIC_NAME'), password: ENV.fetch('PT_BASIC_PSW') if ENV['ENABLE_BASIC_AUTH']
 
   def create
     return unless handle?
