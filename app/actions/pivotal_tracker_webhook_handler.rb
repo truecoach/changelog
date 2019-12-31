@@ -1,6 +1,6 @@
 class PivotalTrackerWebhookHandler < Struct.new(:params)
   def save
-    return true unless event.accepted?
+    return true unless event.report?
 
     SlackNotifier.call(slack_changelog_entry)
   end
