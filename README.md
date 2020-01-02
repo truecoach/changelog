@@ -1,8 +1,6 @@
 # Changelog
 
-In progress / experimental.
-
-An app to create a changelog from issue tracker story transitions.
+An app to create a changelog from issue tracker story transitions. Currently only supports PivotalTracker transitions, and only reports to Slack.
 
 ## Dependencies
 
