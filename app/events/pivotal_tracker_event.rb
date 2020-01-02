@@ -9,7 +9,7 @@ class PivotalTrackerEvent < Struct.new(:raw_params)
   end
 
   def story_id
-    params.dig('primary_resources', 0, 'id')
+    primary_story_resource['id']
   end
 
   def project_name
@@ -19,7 +19,7 @@ class PivotalTrackerEvent < Struct.new(:raw_params)
   def restarted?
     return false unless story_updated?
 
-    changeset.dig('original_values', 'current_state') == 'accepted'
+    story_changeset.dig('original_values', 'current_state') == 'accepted'
   end
 
   private
@@ -29,15 +29,25 @@ class PivotalTrackerEvent < Struct.new(:raw_params)
   end
 
   def story_type
-    params.dig('primary_resources', 0, 'story_type')
+    primary_story_resource['story_type']
+  end
+
+  def primary_story_resource
+    memoize do
+      primary_resources = params['primary_resources'] || []
+
+      primary_resource = primary_resources.detect { |r| r['kind'] == 'story' } || {}
+    end
   end
 
   def story_updated?
     params['kind'] == 'story_update_activity'
   end
 
-  def changeset
-    params.dig('changes', 0) || {}
+  def story_changeset
+    changes = params['changes'] || []
+
+    changes.detect { |c| c['kind'] == 'story' } || {}
   end
 
   def accepted?
