@@ -10,6 +10,11 @@ An app to create a changelog from issue tracker story transitions.
 - [Direnv](https://direnv.net/docs/installation.html)
 - Postgres
 
+## Adding a new Pivotal Tracker project
+
+Once you've got this app running on a public server, simply add a new [activity webhook](https://www.pivotaltracker.com/help/articles/activity_webhook/) in
+your PT project, e.g. `https://myapp.herokuapp.com/pivotal_tracker`.
+
 ## Local setup
 
 ```bash
@@ -25,7 +30,7 @@ $ bundle install
 $ npm i yarn
 $ yarn install
 $ pg_ctl start # or start your postgres db another way
-$ bundle exec rake db:setup
+$ bundle exec rake db:schema:load db:migrate
 $ bundle exec rails s
 ```
 
