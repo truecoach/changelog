@@ -1,15 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /pivotal_tracker', :pt, :slack do
-  let_env do
-    ENV['PT_BASIC_NAME'] = 'test'
-    ENV['PT_BASIC_PSW'] = 'test'
-  end
-
   def ping
-    authorization = ActionController::HttpAuthentication::Basic.encode_credentials(ENV['PT_BASIC_NAME'], ENV['PT_BASIC_PSW'])
-
-    post pivotal_tracker_path, params: params, headers: { 'HTTP_AUTHORIZATION' => authorization }
+    post pivotal_tracker_path, params: params
   end
 
   context 'given a Pivotal Tracker story has been accepted' do
